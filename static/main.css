@@ -9,6 +9,8 @@
 body{
   font-family: "Raleway-med", Arial, sans-serif;
   font-size: 100%;
+  background-color: #000;
+  color: #fff;
 
 }
 #date{
@@ -16,7 +18,7 @@ body{
   font-family: "Raleway-reg", Arial, sans-serif;
 }
 #time{
-  font-size: 3em;
+  font-size: 10em;
   font-family: "Raleway-reg", Arial, sans-serif;
 }
 #month{
@@ -24,4 +26,7 @@ body{
 }
 #day{
   font-size: 3em;
+}
+#temp{
+  font-size: 6em;
 }
