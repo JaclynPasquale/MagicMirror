@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Raleway-med';
+  src: url('fonts/Raleway/Raleway-Medium.ttf')  format('truetype');
+}
+@font-face {
+  font-family: 'Raleway-reg';
+  src: url('fonts/Raleway/Raleway-Regular.ttf')  format('truetype');
+}
+body{
+  font-family: "Raleway-med", Arial, sans-serif;
+  font-size: 100%;
+
+}
+#date{
+  font-size: 4em;
+  font-family: "Raleway-reg", Arial, sans-serif;
+}
+#time{
+  font-size: 3em;
+  font-family: "Raleway-reg", Arial, sans-serif;
+}
+#month{
+  font-size: 3em;
+}
+#day{
+  font-size: 3em;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<link rel="stylesheet" href="main.css" type="text/css">
+<script src="scripts/bootstrap-3.3.6-dist/css/bootstrap.min.css"></script>
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-4 ">
+      <div id="day"></div>
+      <div id="date"></div>
+      <div id="month"></div>
+    </div>
+    <div class="col-xs-4 ">
+      <div id="time"></div>
+    </div>
+    <div class="col-xs-4 ">
+      
+    </div>
+  </div>
+ </div>
+
+</body>
+<script>
+var day = document.getElementById('day');
+var date = document.getElementById('date');
+var month = document.getElementById('month');
+var time = document.getElementById('time');
+var now = new Date();
+var number = now.getDay();
+switch (number){
+  case 0:
+  day.innerText = "Sunday"
+  break;
+  case 1:
+  day.innerText = "Monday"
+  break;
+  case 2:
+  day.innerText = "Tuesday"
+  break;
+  case 3:
+  day.innerText = "Wednesday"
+  break
+  case 4:
+  day.innerText = "Thursday"
+  break
+  case 5:
+  day.innerText = "Friday"
+  break
+  case 6:
+  day.innerText = "Saturday"
+  break
+}
+date.innerText = now.getDate();
+var monthNumber = now.getMonth();
+switch (monthNumber){
+  case 0:
+  month.innerText = "January"
+  break;
+  case 1:
+  month.innerText = "February"
+  break;
+  case 2:
+  month.innerText = "March"
+  break;
+  case 3:
+  month.innerText = "April"
+  break
+  case 4:
+  month.innerText = "May"
+  break
+  case 5:
+  month.innerText = "June"
+  break
+  case 6:
+  month.innerText = "July"
+  break
+  case 7:
+  month.innerText = "August"
+  break
+  case 8:
+  month.innerText = "September"
+  break
+  case 9:
+  month.innerText = "October"
+  break
+  case 10:
+  month.innerText = "November"
+  break
+  case 11:
+  month.innerText = "December"
+  break
+}
+var hours = now.getHours() % 12;
+if(hours == 0){
+  hours = 12;
+}
+var min = now.getMinutes();
+if(min < 10){
+  min = "0" + min;
+}
+time.innerText = hours + ":" + min;
+
+
+
+</script>
+</html>
