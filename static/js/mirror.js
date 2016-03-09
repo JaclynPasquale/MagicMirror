@@ -4,71 +4,49 @@ var month = document.getElementById('month');
 var time = document.getElementById('time');
 var temp = document.getElementById('temp');
 var city = document.getElementById('city');
+
 var now = new Date();
-var number = now.getDay();
-switch (number){
-  case 0:
-  day.innerText = "Sunday"
-  break;
-  case 1:
-  day.innerText = "Monday"
-  break;
-  case 2:
-  day.innerText = "Tuesday"
-  break;
-  case 3:
-  day.innerText = "Wednesday"
-  break
-  case 4:
-  day.innerText = "Thursday"
-  break
-  case 5:
-  day.innerText = "Friday"
-  break
-  case 6:
-  day.innerText = "Saturday"
-  break
-}
-date.innerText = now.getDate();
+var dayNumber = now.getDay();
 var monthNumber = now.getMonth();
-switch (monthNumber){
-  case 0:
-  month.innerText = "January"
-  break;
-  case 1:
-  month.innerText = "February"
-  break;
-  case 2:
-  month.innerText = "March"
-  break;
-  case 3:
-  month.innerText = "April"
-  break
-  case 4:
-  month.innerText = "May"
-  break
-  case 5:
-  month.innerText = "June"
-  break
-  case 6:
-  month.innerText = "July"
-  break
-  case 7:
-  month.innerText = "August"
-  break
-  case 8:
-  month.innerText = "September"
-  break
-  case 9:
-  month.innerText = "October"
-  break
-  case 10:
-  month.innerText = "November"
-  break
-  case 11:
-  month.innerText = "December"
-  break
+
+day.innerText = getFullDayOfWeekName(dayNumber);
+date.innerText = now.getDate();
+month.innerText = getFullMonthName(monthNumber);
+
+updateTime();
+setInterval(updateTime, 1000);
+
+function getFullDayOfWeekName(day){
+    switch (day){
+        case 0: return "Sunday";
+        case 1: return "Monday";
+        case 2: return "Tuesday";
+        case 3: return "Wednesday";
+        case 4: return "Thursday";
+        case 5: return "Friday";
+        case 6: return "Saturday";
+        default: return "Unknown";
+    }
 }
+
+function getFullMonthName(monthNumber){
+    switch (monthNumber){
+        case 0: return "January";
+        case 1: return "February";
+        case 2: return "March";
+        case 3: return "April";
+        case 4: return "May";
+        case 5: return "June";
+        case 6: return "July";
+        case 7: return "August";
+        case 8: return "September";
+        case 9: return "October";
+        case 10: return "November";
+        case 11: return "December";
+        default: return "Unknown";
+    }
+}
+
 function updateTime(){
   var now = new Date();
   var hours = now.getHours() % 12;
@@ -81,14 +59,12 @@ function updateTime(){
   }
   time.innerText = hours + ":" + min;
 }
-setInterval(updateTime, 1000);
 
 function getJSONP(url, cbName){
   var $script = document.createElement('script')
   $script.src = url + '?callback=' + cbName;
   document.body.appendChild($script);
 }
-
 
 function getLocation(){
     navigator.geolocation.getCurrentPosition(function(position){
@@ -97,14 +73,12 @@ function getLocation(){
   });
 }
 
-function myAwesomeFunction(data){
+function updateWeather(data){
         temp.innerHTML = data.current_observation.feelslike_f + "&#176;" + " F";
         city.innerHTML = data.current_observation.display_location.city;
-        
-        console.log(data);
 }
 
 document.addEventListener("DOMContentLoaded", function(){
 var conditonsUrl = "http://api.wunderground.com/api/d89f318f93a1c98e/conditions/q/TN/Nashville.json";
-getJSONP(conditonsUrl, 'myAwesomeFunction');
+getJSONP(conditonsUrl, 'updateWeather');
 });
