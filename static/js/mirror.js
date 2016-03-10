@@ -66,12 +66,12 @@ function getJSONP(url, cbName){
   document.body.appendChild($script);
 }
 
-function getLocation(){
-    navigator.geolocation.getCurrentPosition(function(position){
-    var url = "http://api.wunderground.com/api/d89f318f93a1c98e/geolookup/q/" + position.coords.latitude + "," + position.coords.longitude + ".json";
-    getJSONP(url, 'myAwesomeFunction')
-  });
-}
+// function getLocation(){
+//     navigator.geolocation.getCurrentPosition(function(position){
+//     var url ="http://api.wunderground.com/api/d89f318f93a1c98e/geolookup/q/" + position.coords.latitude + "," + position.coords.longitude + ".json";
+//     getJSONP(url, 'myAwesomeFunction')
+//   });
+// }
 
 function updateWeather(data){
         temp.innerHTML = data.current_observation.feelslike_f + "&#176;" + " F";
